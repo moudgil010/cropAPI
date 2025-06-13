@@ -23,10 +23,12 @@ def predict():
 
     # Make prediction using model
     input_features = [[N, P, K, temperature, humidity, ph, rainfall]]
-    prediction = model.predict(input_features)[0]
+    prediction = model.predict(input_features)
+    crop = prediction[0]
 
     #image url 
-    image_url = f"https://cropapi-pe3a.onrender.com/images/{prediction.lower().replace(' ', '_')}.jpg"
+    image_url = f"{request.host_url}images/{crop.lower().replace(' ', '_')}.jpg"
+
 
     return jsonify({
         "prediction": prediction,
