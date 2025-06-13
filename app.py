@@ -2,9 +2,10 @@
 import os
 from flask import Flask, request, jsonify
 import joblib
+from flask_cors import CORS
 
 app = Flask(__name__, static_url_path='/images', static_folder='images')
-
+CORS(app)
 
 # Load your trained model
 model = joblib.load("model.pkl")
