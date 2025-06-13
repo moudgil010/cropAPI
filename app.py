@@ -23,9 +23,16 @@ def predict():
 
     # Make prediction using model
     input_features = [[N, P, K, temperature, humidity, ph, rainfall]]
-    prediction = model.predict(input_features)
+    prediction = model.predict(input_features)[0]
 
-    return jsonify({"prediction": prediction[0]})
+    #image url 
+    image_url = f"https://yourdomain.com/images/{prediction.lower().replace(' ', '_')}.jpg"
+
+    return jsonify({
+        "prediction": prediction,
+        "image_url": image_url
+
+    })
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  # Default to 5000 for local
