@@ -29,7 +29,7 @@ def predict():
     crop = prediction[0]
 
     #image url 
-    image_url = f"{request.host_url}images/{crop.lower().replace(' ', '_')}.jpg"
+    image_url = f"https://cropapi-production.up.railway.app/images/{crop.lower().replace(' ', '_')}.jpg"
 
 
     return jsonify({
