@@ -26,7 +26,7 @@ def predict():
     prediction = model.predict(input_features)[0]
 
     #image url 
-    image_url = f"https://yourdomain.com/images/{prediction.lower().replace(' ', '_')}.jpg"
+    image_url = f"https://cropapi-pe3a.onrender.com/images/{prediction.lower().replace(' ', '_')}.jpg"
 
     return jsonify({
         "prediction": prediction,
