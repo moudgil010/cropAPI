@@ -31,7 +31,7 @@ def predict():
 
 
     return jsonify({
-        "prediction": prediction,
+        "prediction": crop,
         "image_url": image_url
 
     })
