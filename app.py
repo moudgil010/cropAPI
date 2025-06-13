@@ -3,7 +3,8 @@ import os
 from flask import Flask, request, jsonify
 import joblib
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/images', static_folder='images')
+
 
 # Load your trained model
 model = joblib.load("model.pkl")
