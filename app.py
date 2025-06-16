@@ -31,12 +31,15 @@ def predict():
     #image url 
     image_url = f"https://cropapi-production.up.railway.app/images/{crop.lower().replace(' ', '_')}.jpg"
 
-
     return jsonify({
         "prediction": crop,
         "image_url": image_url
 
     })
+
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({"status": "UP"}), 200
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  # Default to 5000 for local
